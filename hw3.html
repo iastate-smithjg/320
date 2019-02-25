@@ -1,0 +1,35 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  str = document.getElementById("input").value
+  
+  vowel = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
+  consonant =  ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z", 
+  "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+
+  arr = str.split(" ")
+
+for (i=0; i<arr.length; i++) {
+    if (arr[i] === "a") { 
+        var nw = arr[i + 1]
+        fl = nw.charAt(0)
+        if (vowel.includes(fl)) { 
+          arr[i] = "an" 
+        }
+    }
+
+    if (arr[i] === "an") {
+        nw = arr[i + 1]
+        fl = nw.charAt(0)
+        if (consonant.includes(fl)) { 
+          arr[i] = "a" 
+        }
+    }
+}
+document.getElementById("output").value = arr.join(" ") 
+}
+</script>
