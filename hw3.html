@@ -29,6 +29,22 @@ for (i=0; i<arr.length; i++) {
           arr[i] = "a" 
         }
     }
+
+    if (arr[i] === "A") { 
+        var nw = arr[i + 1]
+        fl = nw.charAt(0)
+        if (vowel.includes(fl)) { 
+          arr[i] = "An" 
+        }
+    }
+
+    if (arr[i] === "An") {
+        nw = arr[i + 1]
+        fl = nw.charAt(0)
+        if (consonant.includes(fl)) { 
+          arr[i] = "A" 
+        }
+    }
 }
 document.getElementById("output").value = arr.join(" ") 
 }
