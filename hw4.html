@@ -1,0 +1,32 @@
+<script>
+  question_bank = {
+    in : ["The sock is ___ the drawer.", "We put sugar, butter, and eggs ___ the cake.", "There is blood ___ my veins.", "Theres a snake ___ my boot.", "I am majoring ___ English."],
+    on : ["This girl is ___ fire!", "I want butter ___ my toast.", "I stepped ___ the bus.", "The teacher wrote ___ the whiteboard.", "Do these jeans look good ___ me?"],
+    over : ["We drove ___ the bridge.", "The dog jumped ___ the bench to the other side.", "She put a coat on ___ her shirt", "The cow jumped ___ the moon.", "The girl you are looking for is ___ there!"],
+    under : ["We drove through a tunnel ___ a bridge", "We are protected ___ the law.", "I wore a tanktop ___ my shirt", "My dog likes to lay ___ the table during dinner.", "The ground is ___ my shoes"],
+    around : ["We will leave ___ noon.", "I will meet you ___ this area tonight.", "Let's drive ___ the block again.", "We sat ___ the table.", "He put his arm ___ her."]
+}
+learner_model = { in: 0, on: 0, over: 0, under: 0, around: 0 }
+prepositions = ['in', 'on', 'over', 'under', 'around']
+
+while (true) {
+      worst_known_preposition = prepositions[0] //what prep is in array (position)
+      smallest_score = learner_model[worst_known_preposition] //worst known prep
+      for (i=1; i<prepositions.length; i++) { //for loop to cycle through new sentnences
+        if (learner_model[prepositions[i]] < smallest_score) { //
+          smallest_score = learner_model[prepositions[i]]
+          worst_known_preposition = prepositions[i]
+        }
+      }
+      str = question_bank[worst_known_preposition][parseInt(Math.random()*5)]
+      answer = prompt(str) 
+        if (answer == worst_known_preposition) {
+            alert ("Correct!") 
+            learner_model[worst_known_preposition] = (learner_model[worst_known_preposition] + 1)
+        }    
+        else {
+            alert((str.repeat(1)).replace("___",worst_known_preposition))
+        }
+}
+
+</script>
