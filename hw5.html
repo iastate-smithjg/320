@@ -1,0 +1,7 @@
+<script>
+x = prompt("Enter a sentence.")
+    x = x.replace(/([aeiouy][bcdfghjklmnpqrstvwxz]+)[e]\b/g,"$1-") 
+    y = x.replace(/([aeiouy])/g,"aig$1")
+    z = y.replace(/([-])/g,"e")
+alert(z)
+</script> 
